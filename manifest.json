@@ -1,5 +1,2 @@
-Get-Content: 
-Line |
-   2 |  Get-Content -Raw manifest.json
-     |  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     | Cannot find path 'E:\codex\manifest.json' because it does not exist.
+{"name":"baobao-tea-record","short_name":"baobao-tea","start_url":"./","display":"standalone","background_color":"#f7f7f2","theme_color":"#f7f7f2","lang":"zh-CN","icons":[{"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]}
+
