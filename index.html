@@ -13,13 +13,14 @@
 <body>
   <main class="app-shell">
     <header class="topbar">
-      <div>
-        <p class="eyebrow">包包的茶歇档案</p>
-        <h1>包包的奶茶记录</h1>
+      <div class="brand-lockup">
+        <p class="eyebrow">BUBBLE TEA DIARY</p>
+        <h1>包包的<br><em>奶茶记录</em></h1>
+        <p class="intro">每一杯都值得被记住，<br>尤其是和喜欢的人一起喝的。</p>
       </div>
-      <div class="cup-mark" aria-hidden="true">奶</div>
+      <div class="cup-mark" aria-hidden="true"><span>奶</span><small>since<br>today</small></div>
     </header>
-    <p class="daily-quote" id="dailyQuote"></p>
+    <div class="daily-quote" id="dailyQuote"></div>
 
     <section class="summary-grid" aria-label="消费概览">
       <div class="summary-card highlight"><span>本月杯数</span><strong id="monthCount">0</strong><small>杯奶茶</small></div>
@@ -27,11 +28,11 @@
     </section>
 
     <section class="quick-add">
-      <div class="section-heading"><div><p class="eyebrow">新鲜出炉</p><h2>记下这一杯</h2></div><span class="date-pill" id="todayLabel"></span></div>
+      <div class="section-heading"><div><p class="eyebrow">NEW ENTRY</p><h2>记下这一杯</h2></div><span class="date-pill" id="todayLabel"></span></div>
       <form id="drinkForm">
-        <label>店铺或品牌<select id="brand" required><option value="">请选择品牌</option><option>喜茶</option><option>霸王茶姬</option><option>奈雪的茶</option><option>茶百道</option><option>古茗</option><option>沪上阿姨</option><option>一点点</option><option>蜜雪冰城</option><option>瑞幸咖啡</option><option>星巴克</option><option value="other">其他</option></select></label>
+        <label class="wide-field">店铺或品牌<select id="brand" required><option value="">请选择品牌</option><option>喜茶</option><option>霸王茶姬</option><option>奈雪的茶</option><option>茶百道</option><option>古茗</option><option>沪上阿姨</option><option>一点点</option><option>蜜雪冰城</option><option>瑞幸咖啡</option><option>星巴克</option><option value="other">其他</option></select></label>
         <label id="customBrandLabel" class="hidden">自定义品牌<input id="customBrand" maxlength="30" placeholder="请输入奶茶店名称" /></label>
-        <label>口味<select id="flavor" required disabled><option value="">先选择品牌</option></select></label>
+        <label class="wide-field">口味<select id="flavor" required disabled><option value="">先选择品牌</option></select></label>
         <label id="customFlavorLabel" class="hidden">自定义口味<input id="customFlavor" maxlength="40" placeholder="请输入饮品名称" /></label>
         <div class="form-row">
           <label>价格（元）<input id="price" type="number" min="0" step="0.5" required placeholder="0" /></label>
@@ -41,13 +42,13 @@
           <fieldset><legend>甜度</legend><div class="choice-group" data-field="sweetness"><button type="button" data-value="无糖">无糖</button><button type="button" data-value="少糖" class="selected">少糖</button><button type="button" data-value="正常糖">正常糖</button></div></fieldset>
           <fieldset><legend>冰量</legend><div class="choice-group" data-field="ice"><button type="button" data-value="去冰">去冰</button><button type="button" data-value="少冰" class="selected">少冰</button><button type="button" data-value="正常冰">正常冰</button></div></fieldset>
         </div>
-        <label>备注（可选）<textarea id="note" rows="2" maxlength="100" placeholder="今天为什么选择它？"></textarea></label>
-        <button class="primary-button" type="submit"><span>＋</span>保存这杯</button>
+        <label class="wide-field">备注（可选）<textarea id="note" rows="2" maxlength="100" placeholder="今天为什么选择它？"></textarea></label>
+        <button class="primary-button" type="submit"><span>＋</span>收藏这杯</button>
       </form>
     </section>
 
     <section class="history-section">
-      <div class="section-heading"><div><p class="eyebrow">时间线</p><h2>喝过的奶茶</h2></div><select id="filter"><option value="all">全部记录</option><option value="month">本月</option></select></div>
+      <div class="section-heading"><div><p class="eyebrow">YOUR ARCHIVE</p><h2>喝过的奶茶</h2></div><select id="filter"><option value="all">全部记录</option><option value="month">本月</option></select></div>
       <div id="emptyState" class="empty-state"><div class="empty-icon">☕</div><h3>还没有记录</h3><p>保存你的第一杯奶茶，开始积累这份小小档案。</p></div>
       <div id="drinkList" class="drink-list"></div>
     </section>
