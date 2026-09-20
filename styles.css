@@ -1,5 +1,117 @@
-Get-Content: 
-Line |
-   2 |  Get-Content -Raw styles.css
-     |  ~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     | Cannot find path 'E:\codex\styles.css' because it does not exist.
+:root {
+  --ink: #20231f;
+  --muted: #72786f;
+  --paper: #f7f7f2;
+  --surface: #ffffff;
+  --line: #dfe4dc;
+  --leaf: #536b4c;
+  --leaf-dark: #2f4936;
+  --grape: #70577b;
+  --lemon: #e7d477;
+  --coral: #d8785f;
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.45;
+}
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; background: var(--paper); }
+button, input, select, textarea { font: inherit; }
+button, select { cursor: pointer; }
+.app-shell { width: min(100%, 860px); margin: auto; padding: 34px 24px 72px; }
+.topbar { display: flex; justify-content: space-between; gap: 32px; align-items: flex-start; }
+.brand-lockup { position: relative; }
+.eyebrow { margin: 0 0 8px; color: var(--leaf); font-size: 10px; font-weight: 800; letter-spacing: 1.8px; }
+.topbar h1 { margin: 0; font-family: Georgia, "Songti SC", serif; font-size: clamp(38px, 7vw, 68px); font-weight: 400; line-height: .98; letter-spacing: -2px; }
+.topbar h1 em { color: var(--grape); font-style: normal; }
+.intro { margin: 20px 0 0; color: var(--muted); font-size: 13px; line-height: 1.7; }
+.cup-mark { width: 92px; height: 116px; border: 1.5px solid var(--leaf); border-radius: 45% 45% 36% 36%; color: var(--leaf-dark); display: flex; flex-direction: column; justify-content: center; align-items: center; transform: rotate(4deg); margin: 8px 12px 0 0; position: relative; }
+.cup-mark::before { content: ""; width: 40px; height: 16px; border: 1.5px solid var(--leaf); border-bottom: 0; border-radius: 50% 50% 0 0; position: absolute; top: -9px; }
+.cup-mark::after { content: ""; width: 3px; height: 28px; background: var(--lemon); position: absolute; top: -28px; transform: rotate(20deg); }
+.cup-mark span { font-family: Georgia, serif; font-size: 28px; }
+.cup-mark small { color: var(--muted); font-size: 8px; line-height: 1.2; text-align: center; letter-spacing: 1px; margin-top: 4px; }
+.daily-quote { margin: 34px 0 28px; padding: 14px 18px; border-left: 3px solid var(--lemon); color: var(--grape); background: rgba(255,255,255,.55); font-family: Georgia, "Songti SC", serif; font-size: 15px; }
+.summary-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-bottom: 34px; }
+.summary-card { min-height: 112px; padding: 18px 18px 14px; background: var(--leaf-dark); color: white; position: relative; overflow: hidden; }
+.summary-card::after { content: ""; width: 70px; height: 70px; border: 1px solid rgba(231,212,119,.65); border-radius: 50%; position: absolute; right: -20px; bottom: -22px; }
+.summary-card:nth-child(2) { background: var(--grape); }
+.summary-card span, .summary-card small { display: block; color: rgba(255,255,255,.72); font-size: 12px; }
+.summary-card strong { display: block; margin: 6px 0 2px; font-family: Georgia, serif; font-size: 34px; font-weight: 400; }
+.quick-add { padding: 26px; background: var(--surface); border: 1px solid var(--line); border-top: 4px solid var(--leaf); }
+.section-heading { display: flex; justify-content: space-between; align-items: flex-end; gap: 18px; margin-bottom: 22px; }
+h2 { margin: 0; font-family: Georgia, "Songti SC", serif; font-size: 30px; font-weight: 400; letter-spacing: -.5px; }
+.date-pill { color: var(--muted); font-size: 12px; white-space: nowrap; }
+#drinkForm { display: grid; grid-template-columns: 1fr 1fr; column-gap: 16px; }
+label, legend { display: block; margin-bottom: 15px; color: var(--muted); font-size: 12px; font-weight: 700; }
+.wide-field { grid-column: 1 / -1; }
+input, select, textarea { width: 100%; margin-top: 7px; border: 1px solid var(--line); border-radius: 0; background: #fbfcf8; color: var(--ink); padding: 12px; font-size: 15px; outline: none; }
+select { appearance: auto; }
+input:focus, select:focus, textarea:focus, button:focus-visible { border-color: var(--leaf); outline: 3px solid rgba(83,107,76,.2); outline-offset: 1px; }
+select:disabled { color: #a5aaa2; cursor: not-allowed; }
+textarea { min-height: 70px; resize: vertical; }
+fieldset { min-width: 0; padding: 0; border: 0; margin: 0; }
+.choice-group { display: flex; margin-top: 7px; }
+.choice-group button { flex: 1; padding: 11px 4px; border: 1px solid var(--line); border-right: 0; background: #fbfcf8; color: var(--muted); font-size: 12px; }
+.choice-group button:first-child { border-radius: 0; }
+.choice-group button:last-child { border-right: 1px solid var(--line); }
+.choice-group button.selected { background: var(--lemon); border-color: #c8b65b; color: var(--ink); position: relative; z-index: 1; }
+.primary-button { grid-column: 1 / -1; border: 0; border-radius: 0; margin-top: 4px; padding: 15px; background: var(--leaf); color: white; font-size: 15px; font-weight: 800; transition: background .2s ease, transform .2s ease; }
+.primary-button:hover { background: var(--leaf-dark); transform: translateY(-1px); }
+.primary-button span { margin-right: 5px; font-size: 21px; vertical-align: -1px; }
+.history-section { padding-top: 46px; }
+.history-section .section-heading { border-bottom: 1px solid var(--line); padding-bottom: 16px; }
+.history-section select { width: auto; margin: 0; padding: 8px 10px; font-size: 12px; background: transparent; }
+.drink-list { display: grid; gap: 11px; }
+.drink-card { display: grid; grid-template-columns: 1fr auto; gap: 6px 16px; padding: 17px 18px; background: var(--surface); border-left: 4px solid var(--grape); }
+.drink-card:nth-child(2n) { border-left-color: var(--leaf); }
+.drink-card h3 { margin: 0; font-size: 16px; }
+.drink-card .flavor { color: var(--muted); font-size: 13px; }
+.drink-card .price { color: var(--grape); font-family: Georgia, serif; font-size: 20px; }
+.drink-card .meta { grid-column: 1 / -1; margin-top: 5px; padding-top: 9px; border-top: 1px solid var(--line); color: var(--muted); font-size: 11px; }
+.drink-card .note { grid-column: 1 / -1; margin: 2px 0 0; color: #5e665d; font-family: Georgia, "Songti SC", serif; font-size: 12px; font-style: italic; }
+.delete-button { grid-column: 2; border: 0; padding: 0; background: transparent; color: #9da39b; font-size: 11px; }
+.delete-button:hover { color: var(--coral); }
+.empty-state { padding: 38px 15px; border: 1px dashed #cbd2c8; color: var(--muted); text-align: center; }
+.empty-icon { color: var(--grape); font-size: 30px; }
+.empty-state h3 { margin: 8px 0 4px; color: var(--ink); font-size: 16px; }
+.empty-state p { margin: 0; font-size: 12px; }
+.hidden { display: none !important; }
+@media (max-width: 560px) {
+  .app-shell { padding: 24px 16px 52px; }
+  .topbar { gap: 12px; }
+  .cup-mark { width: 67px; height: 88px; margin-right: 4px; }
+  .cup-mark span { font-size: 22px; }
+  .cup-mark::before { width: 30px; }
+  .cup-mark small { font-size: 7px; }
+  .summary-card { min-height: 98px; padding: 14px; }
+  .summary-card strong { font-size: 28px; }
+  .quick-add { padding: 20px 16px; }
+  #drinkForm { display: block; }
+  .section-heading { align-items: flex-start; }
+  h2 { font-size: 25px; }
+}
+@media (prefers-reduced-motion: reduce) { .primary-button { transition: none; } }
+
+/* Tea-menu typography: editorial display type paired with native mobile text. */
+:root {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Microsoft YaHei", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+.topbar h1, h2, .daily-quote, .summary-card strong, .drink-card .price, .drink-card .note {
+  font-family: "Noto Serif SC", "Songti SC", STSong, Georgia, serif;
+  font-synthesis: none;
+}
+.topbar h1 {
+  font-weight: 500;
+  letter-spacing: -.055em;
+  line-height: 1.02;
+}
+h2 { font-weight: 500; letter-spacing: -.035em; }
+.intro, .daily-quote, .empty-state p { line-height: 1.75; }
+label, legend { font-weight: 600; letter-spacing: .01em; }
+input, select, textarea, button { letter-spacing: .01em; }
+.summary-card strong, .drink-card .price { font-variant-numeric: tabular-nums; }
+.summary-card strong { letter-spacing: -.03em; }
+.drink-card h3 { font-weight: 700; letter-spacing: -.015em; }
+
